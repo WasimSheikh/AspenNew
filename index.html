@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signature Aspen Imaging</title>
+  <!-- Google Fonts: Raleway -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #15304b;
@@ -12,7 +14,7 @@
       --gray-bg: #f5f5f5;
       --text-dark: #222;
       --text-light: #fff;
-      --font-main: 'Segoe UI', Arial, sans-serif;
+      --font-main: 'Raleway', Arial, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -20,18 +22,19 @@
       background: var(--gray-bg);
       color: var(--text-dark);
       line-height: 1.6;
+      font-feature-settings: "kern" 1, "liga" 1;
     }
     header {
       background: #fff;
       border-bottom: 1px solid #eee;
-      padding: 0.5rem 0;
     }
     .top-bar {
       display: flex;
+      background:#efebeb; 
       justify-content: flex-end;
       font-size: 0.9rem;
-      color: #888;
-      padding: 0 2vw;
+      color: #000;
+      padding: 0.5rem 2vw;
     }
     .nav-bar {
       display: flex;
@@ -180,64 +183,246 @@
       color: var(--accent);
     }
     /* Intro Section */
-    .intro {
+    .intro-bg-wrap {
+      position: relative;
+      background: #f5f9f4;
+      overflow: hidden;
+      padding: 0 0 2.5rem 0;
+    }
+    .intro-bg-shape {
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      z-index: 0;
+      background: linear-gradient(120deg, #e3f6e8 60%, #b6e0f7 100%);
+      width: 100%;
+      height: 100%;
+      clip-path: ellipse(90% 70% at 50% 40%);
+      opacity: 0.7;
+    }
+    .intro-main {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-wrap: wrap;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
-      background: #fff;
-      padding: 2.5rem 7vw 2.5rem 7vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 2vw 2.5rem 2vw;
       gap: 3vw;
     }
-    .intro-img {
-      flex: 0 0 520px;
-      min-width: 310px;
-      max-width: 570px;
-      background: #bbb;
+    .intro-img-col {
+      flex: 1 1 340px;
       display: flex;
-      align-items: flex-start;
       justify-content: center;
+      align-items: flex-start;
     }
-    .intro-img img {
-      width: 100%;
-      max-width: 550px;
-      height: auto;
-      object-fit: cover;
+    .intro-img-placeholder {
+      width: 340px;
+      height: 340px;
+      background: #e0e0e0;
       border-radius: 8px;
+      box-shadow: 0 2px 12px #0001;
+      margin-bottom: 1rem;
     }
-    .intro-text {
-      flex: 0 1 570px;
-      min-width: 310px;
-      max-width: 650px;
+    .intro-content-col {
+      flex: 1 1 340px;
+      max-width: 500px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       align-items: flex-start;
-      margin-left: 2vw;
+      justify-content: flex-start;
     }
-    .intro-text h2 {
-      font-size: 2.2rem;
-      font-weight: 500;
-      margin-bottom: 1.1rem;
-      margin-top: 0;
-      align-self: flex-start;
-    }
-    .intro-text p {
-      margin-bottom: 1.2rem;
-      color: #444;
-      max-width: 550px;
-      line-height: 1.6;
-      align-self: flex-start;
-    }
-    .intro-text a {
-      color: var(--primary);
+    .intro-content-col h2 {
+      font-size: 2.1rem;
       font-weight: 600;
-      text-decoration: none;
-      border-bottom: 1px dotted var(--primary);
-      transition: color 0.2s;
+      margin-bottom: 1.2rem;
+      color: #1a2a3a;
     }
-    .intro-text a:hover {
+    .intro-content-col p {
+      color: #222;
+      margin-bottom: 1.5rem;
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+    .intro-cta {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--primary);
+      padding-bottom: 2px;
+      letter-spacing: 0.01em;
+      transition: color 0.2s, border 0.2s;
+    }
+    .intro-cta:hover {
       color: var(--accent);
+      border-bottom: 1.5px solid var(--accent);
+    }
+    .intro-cta .arrow {
+      font-size: 1.1em;
+      margin-left: 0.2em;
+    }
+    /* Customers Band */
+    .customers-band {
+      background: #3eb1e6;
+      color: #0a2a3a;
+      text-align: center;
+      padding: 2.2rem 0 2.2rem 0;
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+    }
+    .customers-band-title {
+      color: #0a2a3a;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    /* Features Main Section */
+    .features-main-bg {
+      background: #f5f9f4;
+      padding: 2.5rem 0 2.5rem 0;
+    }
+    .features-main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      justify-content: center;
+    }
+    .features-main-col {
+      flex: 1 1 340px;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .features-main-img-placeholder {
+      width: 340px;
+      height: 240px;
+      background: #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px #0001;
+      margin-bottom: 1.2rem;
+    }
+    .features-main-col h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      color: #1a2a3a;
+    }
+    .features-main-col p {
+      color: #222;
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .features-cta {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--primary);
+      padding-bottom: 2px;
+      letter-spacing: 0.01em;
+      transition: color 0.2s, border 0.2s;
+    }
+    .features-cta:hover {
+      color: var(--accent);
+      border-bottom: 1.5px solid var(--accent);
+    }
+    .features-cta .arrow {
+      font-size: 1.1em;
+      margin-left: 0.2em;
+    }
+    /* Testimonial Band */
+    .testimonial-band {
+      background: #3eb1e6;
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 0 2.5rem 0;
+      position: relative;
+    }
+    .testimonial-band-circle {
+      width: 60px;
+      height: 60px;
+      background: #fff;
+      border-radius: 50%;
+      margin: 0 auto 1.2rem auto;
+      box-shadow: 0 2px 8px #0002;
+    }
+    .testimonial-band-quote {
+      font-size: 1.18rem;
+      font-style: italic;
+      margin-bottom: 1.1rem;
+      color: #0a2a3a;
+    }
+    .testimonial-band-customer {
+      font-size: 1.05rem;
+      color: #0a2a3a;
+      font-weight: 600;
+    }
+    /* Certified Band */
+    .certified-band {
+      background: #f5f9f4;
+      text-align: center;
+      padding: 2.5rem 0 2.5rem 0;
+    }
+    .certified-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a2a3a;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.04em;
+    }
+    .certified-line {
+      width: 100%;
+      max-width: 400px;
+      height: 2px;
+      background: #b6e0f7;
+      margin: 0 auto 1.5rem auto;
+      border-radius: 2px;
+    }
+    .certified-logos-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5vw;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .certified-logo img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 0.5rem;
+    }
+    @media (max-width: 900px) {
+      .intro-main, .features-main {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 4vw;
+      }
+      .intro-img-placeholder, .features-main-img-placeholder {
+        width: 98vw;
+        max-width: 340px;
+        height: 220px;
+      }
+      .features-main-col {
+        max-width: 98vw;
+      }
+      .certified-logos-row {
+        gap: 1vw;
+      }
+      .certified-logo img {
+        width: 60px;
+        height: 60px;
+      }
     }
     /* Testimonial */
     .testimonial {
@@ -586,6 +771,52 @@
         display: none !important;
       }
     }
+    .customer-logos {
+      background: #f8fafc;
+      padding: 2.5rem 2vw 1.5rem 2vw;
+      text-align: center;
+    }
+    .customer-logos-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .customer-logos-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5vw;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .customer-logo {
+      width: 120px;
+      height: 60px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 0.5rem 1rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+      margin-bottom: 1rem;
+    }
+    .customer-logo:hover {
+      box-shadow: 0 4px 16px #0002;
+      transform: scale(1.06) rotate(-2deg);
+    }
+    @media (max-width: 900px) {
+      .customer-logos-row {
+        gap: 1vw;
+      }
+      .customer-logo {
+        width: 90px;
+        height: 45px;
+        padding: 0.3rem 0.5rem;
+      }
+    }
     .customer-says {
       background: linear-gradient(90deg, #f5f5f5 60%, #e3eaf3 100%);
       padding: 3rem 2vw 2.5rem 2vw;
@@ -676,6 +907,23 @@
         min-width: 0;
       }
     }
+    .customer-logos-row.single-line-scroll {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 2.5vw;
+      scrollbar-width: thin;
+      scrollbar-color: #bbb #f8fafc;
+    }
+    .customer-logos-row.single-line-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+    .customer-logos-row.single-line-scroll::-webkit-scrollbar-thumb {
+      background: #bbb;
+      border-radius: 4px;
+    }
+    .customer-logos-row.single-line-scroll::-webkit-scrollbar-track {
+      background: #f8fafc;
+    }
   </style>
 </head>
 <body>
@@ -684,7 +932,7 @@
       <span>Contact Us</span>&nbsp;|&nbsp;<span>Pay Online</span>&nbsp;|&nbsp;<span><b>Place An Order</b></span>
     </div>
     <div class="nav-bar">
-      <div class="logo">Signature<br>Aspen Imaging</div>
+      <div class="logo"><img src="https://signatureaspen.com/wp-content/uploads/2021/03/logo2.png" alt="Signature Aspen Logo" width="150"></div>
       <nav>
         <ul>
           <li class="has-mega-menu">
@@ -740,7 +988,7 @@
   </header>
   <section class="hero">
     <div class="hero-text">
-      <h1>Your image<br>communications<br>company</h1>
+      <h1>Make your <br>mark on <br>the world <br>with Signature</h1>
     </div>
     <div class="hero-img">
       <img id="heroBannerImg" src="https://placehold.co/700x400?text=Promotional+Products" alt="Hero Image">
@@ -758,77 +1006,55 @@
       </div>
     </div>
   </section>
-  <section class="intro">
-    <div class="intro-img">
-      <img src="https://www.amalficoast-traveller.com/wp-content/uploads/2020/05/Large-Format-Printing-and-The-Materials-Used-for-It-amalficoast-traveller.png" alt="Intro Image">
-    </div>
-    <div class="intro-text">
-      <h2>We help you make your mark</h2>
-      <p>Minimus bonsuliae niusulto consunt erferist fic muntima, noritat iamidi plici conih.Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu lto dier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic muntima, noritat iamidi plici conih.Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu lto dier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic muntima, noritat iamidi plici conih.</p>
-      <a href="#">VIEW OUR SERVICES</a>
-    </div>
-  </section>
-  <div class="testimonial">
-    "Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu lto dier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic muntimamidi."
-    <span>– Customer Name</span>
-  </div>
-  <section class="customer-says">
-    <h2 class="customer-says-title">Our Customer Says</h2>
-    <div class="customer-says-grid">
-      <div class="customer-card">
-        <div class="customer-quote-mark">“</div>
-        <div class="customer-quote">Signature Aspen Imaging brought our brand to life with vibrant, high-quality prints. The attention to detail is unmatched!</div>
-        <div class="customer-name">– Sarah L., Retail Manager</div>
-        <div class="customer-swatches">
-          <span class="swatch swatch-cyan"></span>
-          <span class="swatch swatch-magenta"></span>
-          <span class="swatch swatch-yellow"></span>
-          <span class="swatch swatch-black"></span>
-        </div>
+  <section class="intro-bg-wrap">
+    <div class="intro-bg-shape"></div>
+    <div class="intro-main">
+      <div class="intro-img-col">
+        <div class="intro-img-placeholder" style="background-image: url('https://www.alphagraphics.com/BlogMigrationImages/wp-content/uploads/sites/25/2017/05/LargeFormat_windowDecal.jpg'); background-size: cover; background-position: center;"></div>
       </div>
-      <div class="customer-card">
-        <div class="customer-quote-mark">“</div>
-        <div class="customer-quote">From banners to business cards, every piece exceeded our expectations. Fast turnaround and friendly service!</div>
-        <div class="customer-name">– Mike D., Event Organizer</div>
-        <div class="customer-swatches">
-          <span class="swatch swatch-cyan"></span>
-          <span class="swatch swatch-magenta"></span>
-          <span class="swatch swatch-yellow"></span>
-          <span class="swatch swatch-black"></span>
-        </div>
-      </div>
-      <div class="customer-card">
-        <div class="customer-quote-mark">“</div>
-        <div class="customer-quote">The print quality and creative support helped us stand out at our trade show. Highly recommended for any business!</div>
-        <div class="customer-name">– Priya S., Marketing Director</div>
-        <div class="customer-swatches">
-          <span class="swatch swatch-cyan"></span>
-          <span class="swatch swatch-magenta"></span>
-          <span class="swatch swatch-yellow"></span>
-          <span class="swatch swatch-black"></span>
-        </div>
+      <div class="intro-content-col">
+        <h2>Houston's One-Stop Print Partner</h2>
+        <p>Signature Aspen has helped Texas businesses bring their brands to life for nearly a century, offering everything from commercial and digital printing to eye-catching large-format graphics—all under one roof. Our family-owned shop in northwest Houston means faster turnarounds, consistent color, and that warm Lone-Star-State service you expect. Whether you need a small run of brochures or banners big enough for the rodeo, we've got you covered.</p>
+        <a class="intro-cta" href="#">REQUEST A QUOTE <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
-  <section class="video-section">
-    <div class="video-placeholder">
-      <div class="play-btn">
-        <svg viewBox="0 0 64 64"><polygon points="24,16 52,32 24,48"/></svg>
+  <section class="customers-band">
+    <div class="customers-band-title">OUR CUSTOMERS INCLUDE</div>
+  </section>
+  <section class="features-main-bg">
+    <div class="features-main">
+      <div class="features-main-col">
+        <div class="features-main-img-placeholder" style="background-image: url('https://www.ketegroup.com/wp-content/uploads/2024/02/5types-of-printing-press.webp'); background-size: cover; background-position: center;"></div>
+        <h3>State-of-the-Art Technology, Lone-Star Expertise</h3>
+        <p>Step inside our modern workshop and you'll find top-of-the-line pressers run by a 50-member team of print pros who treat every job like it's their own. By producing 95% of projects in-house with the latest automation and color-management tools, we deliver razor-sharp quality and wallet-friendly efficiency—no cattle-drive delays, just straight-shooting results.</p>
+        <a class="features-cta" href="#">SCHEDULE A PRESS-ROOM TOUR <span class="arrow">→</span></a>
+      </div>
+      <div class="features-main-col">
+        <div class="features-main-img-placeholder" style="background-image: url('https://thumbs.dreamstime.com/b/boxes-moving-conveyor-belt-busy-warehouse-part-fulfillment-process-concept-warehouse-logistics-fulfillment-process-boxes-311576509.jpg'); background-size: cover; background-position: center;"></div>
+        <h3>From Concept to Doorstep—Complete Print & Fulfillment</h3>
+        <p>Print is only the beginning. Our experts handle design tweaks, data-driven direct-mail and fulfillment programs, and even promotional swag, so your message rides from idea to inbox (or mailbox) without a hitch. Partner with us for a seamless pipeline that activates your brand across every touchpoint—Houston and beyond.</p>
+        <a class="features-cta" href="#">KICK-OFF YOUR PROJECT TODAY <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
-  <section class="features">
-    <div class="feature">
-      <div class="feature-img"><img src="https://placehold.co/220x300" alt="Feature 1"></div>
-      <div class="feature-title">Lorem Ipsum Dolor Sit</div>
-      <div class="feature-desc">Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu lto dier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic</div>
-    </div>
-    <div class="feature">
-      <div class="feature-img"><img src="https://placehold.co/220x300" alt="Feature 2"></div>
-      <div class="feature-title">Amet Ocuro Consecuto</div>
-      <div class="feature-desc">Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu lto dier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic</div>
+  <section class="testimonial-band">
+    <div class="testimonial-band-circle" style="background-image: url('https://www.alphagraphics.com/BlogMigrationImages/wp-content/uploads/sites/25/2017/05/LargeFormat_windowDecal.jpg'); background-size: cover; background-position: center;"></div>
+    <div class="testimonial-band-quote">"Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu ltodier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic muntimamidi."</div>
+    <div class="testimonial-band-customer">– Customer Name</div>
+  </section>
+  <section class="certified-band">
+    <div class="certified-title">CERTIFIED FOR EXCELLENCE</div>
+    <div class="certified-line"></div>
+    <div class="certified-logos-row">
+      <div class="certified-logo"><img src="https://signatureaspen.com/wp-content/uploads/2023/08/3M-Certified-Graphics-Installation-Company-signature-aspen-printing-houston.png" alt="Certification 1"></div>
+      <div class="certified-logo"><img src="https://signatureaspen.com/wp-content/uploads/2023/08/3m-mcs-warranty-signature-aspen-print.png" alt="Certification 2"></div>
+      <div class="certified-logo"><img src="https://signatureaspen.com/wp-content/uploads/2023/08/Forest-Stewardship-CouncilFSC-signature-aspen-sustainable-printing.gif" alt="Certification 3"></div>
+      <div class="certified-logo"><img src="https://signatureaspen.com/wp-content/uploads/2023/08/PrUA_printing-united-member-signature-aspen.png" alt="Certification 4"></div>
     </div>
   </section>
+   
+    
   <footer>
     <div class="footer-main">
       <div class="footer-col">
