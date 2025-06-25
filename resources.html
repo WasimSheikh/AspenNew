@@ -467,6 +467,20 @@
       .hero-bottom-arrow {
         display: none;
       }
+      .industry-row {
+        gap: 1vw;
+      }
+      .industry-img-placeholder {
+        width: 110px;
+        height: 110px;
+      }
+      .industry-col {
+        min-width: 90px;
+        max-width: 120px;
+      }
+      .industry-title {
+        font-size: 1rem;
+      }
     }
     @media (max-width: 600px) {
       .nav-bar, .service-nav, .intro, .video-section, .features, .footer-main {
@@ -583,6 +597,53 @@
         display: none !important;
       }
     }
+    .industry-top {
+      background: #fff;
+      padding: 2.5rem 0 1.5rem 0;
+    }
+    .industry-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2vw;
+      max-width: 1400px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .industry-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1 1 180px;
+      min-width: 180px;
+      max-width: 240px;
+    }
+    .industry-title {
+      font-weight: bold;
+      font-size: 0.98rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      margin-top: 0;
+      letter-spacing: 0.01em;
+    }
+    .industry-img-placeholder {
+      width: 200px;
+      height: 200px;
+      background: #888;
+      opacity: 0.7;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 1200px) {
+      .industry-img-placeholder {
+        width: 150px;
+        height: 150px;
+      }
+      .industry-col {
+        min-width: 120px;
+        max-width: 180px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -595,7 +656,7 @@
       <nav>
         <ul>
           <li class="has-mega-menu">
-            <a href="#" id="services-link">SERVICES & SOLUTIONS</a>
+            <a href="index.html" id="services-link">SERVICES & SOLUTIONS</a>
             <div class="mega-menu" id="mega-menu">
               <div class="mega-menu-col">
                 <div class="mega-title">PROMOTIONAL PRODUCTS</div>
@@ -645,6 +706,30 @@
       <span class="search">&#128269;</span>
     </div>
   </header>
+  <section class="industry-top">
+    <div class="industry-row">
+      <div class="industry-col">
+        <div class="industry-title">GALLERY OF OUR WORK</div>
+        <div class="industry-img-placeholder"></div>
+      </div>
+      <div class="industry-col">
+        <div class="industry-title">TEMPLATES, SPEC & GUIDES</div>
+        <div class="industry-img-placeholder"></div>
+      </div>
+      <div class="industry-col">
+        <div class="industry-title">EXHIBITOR HANDBOOK</div>
+        <div class="industry-img-placeholder"></div>
+      </div>
+      <div class="industry-col">
+        <div class="industry-title">FAQ</div>
+        <div class="industry-img-placeholder"></div>
+      </div>
+      <div class="industry-col">
+        <div class="industry-title">CASE STUDIES</div>
+        <div class="industry-img-placeholder"></div>
+      </div>
+    </div>
+  </section>
   <section class="hero">
     <div class="hero-text">
       <h1>Your image<br>communications<br>company</h1>
