@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signature Aspen Imaging</title>
+  <style>
+    :root {
+      --primary: #15304b;
+      --accent: #6cc24a;
+      --footer-bg: #111;
+      --gray-bg: #f5f5f5;
+      --text-dark: #222;
+      --text-light: #fff;
+      --font-main: 'Segoe UI', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background: var(--gray-bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 0.5rem 0;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 0.9rem;
+      color: #888;
+      padding: 0 2vw;
+    }
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 2vw;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      line-height: 1.1;
+    }
+    nav ul {
+      display: flex;
+      gap: 2vw;
+      list-style: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
+    .search {
+      font-size: 1.2rem;
+      color: #888;
+      margin-left: 1vw;
+      cursor: pointer;
+    }
+    /* Hero Section */
+    .hero {
+      background: var(--primary);
+      color: var(--text-light);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 3.5rem 2vw 2rem 2vw;
+      min-height: 620px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-text {
+      flex: 1 1 300px;
+      z-index: 1;
+    }
+    .hero-text h1 {
+      font-size: 5.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    margin-left: 3vw;
+    }
+    .hero-img {
+      flex: 1 1 250px;
+      min-width: 220px;
+      display: flex;
+      justify-content: flex-start;
+      z-index: 1;
+      margin-bottom: 3rem;
+    }
+    .hero-img img {
+      width: 90%;
+      border-radius: 6px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .hero-bottom-links {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: transparent;
+      padding: 1.2rem 2vw 0.7rem 2vw;
+      z-index: 2;
+      font-size: 1.1rem;
+      font-weight: 600;
+      gap: 1.5rem;
+      flex-direction: column;
+    }
+    .hero-bottom-links-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      width: 100%;
+      position: relative;
+    }
+    .hero-bottom-arrow {
+      position: absolute;
+      left: 0;
+      top: -22px;
+      height: 18px;
+      width: 28px;
+      pointer-events: none;
+      transition: left 0.3s cubic-bezier(.4,1.3,.6,1), top 0.3s cubic-bezier(.4,1.3,.6,1);
+      z-index: 3;
+    }
+    .hero-bottom-arrow svg {
+      display: block;
+      margin: 0 auto;
+      height: 18px;
+      width: 28px;
+      transform: rotate(180deg);
+    }
+    .hero-bottom-links a {
+      color: #bfcbe2;
+      text-decoration: none;
+      margin: 0 1vw;
+      transition: color 0.2s;
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+    }
+    .hero-bottom-links a.active, .hero-bottom-links a:hover {
+      color: var(--accent);
+    }
+    .service-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5vw;
+      background: transparent;
+      color: var(--text-light);
+      padding: 1rem 2vw 0.5rem 2vw;
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid #2a4666;
+    }
+    .service-nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: border 0.2s;
+    }
+    .service-nav a.active, .service-nav a:hover {
+      border-bottom: 2px solid var(--accent);
+      color: var(--accent);
+    }
+    /* Intro Section */
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      background: #fff;
+      padding: 2.5rem 7vw 2.5rem 7vw;
+      gap: 3vw;
+    }
+    .intro-img {
+      flex: 0 0 520px;
+      min-width: 310px;
+      max-width: 570px;
+      background: #bbb;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .intro-img img {
+      width: 100%;
+      max-width: 550px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .intro-text {
+      flex: 0 1 570px;
+      min-width: 310px;
+      max-width: 650px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-left: 2vw;
+    }
+    .intro-text h2 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin-bottom: 1.1rem;
+      margin-top: 0;
+      align-self: flex-start;
+    }
+    .intro-text p {
+      margin-bottom: 1.2rem;
+      color: #444;
+      max-width: 550px;
+      line-height: 1.6;
+      align-self: flex-start;
+    }
+    .intro-text a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px dotted var(--primary);
+      transition: color 0.2s;
+    }
+    .intro-text a:hover {
+      color: var(--accent);
+    }
+    /* Testimonial */
+    .testimonial {
+      background: var(--accent);
+      color: var(--text-dark);
+      text-align: center;
+      padding: 1.5rem 2vw;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .testimonial span {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 400;
+      margin-top: 0.5rem;
+    }
+    /* Video Section */
+    .video-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #e5e5e5 0%, #fff 100%);
+      padding: 2rem 2vw;
+    }
+    .video-placeholder {
+      width: 100%;
+      max-width: 600px;
+      aspect-ratio: 16/9;
+      background: #f3f3f3;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .video-placeholder::before {
+      content: '';
+      display: block;
+      padding-top: 56.25%;
+    }
+    .play-btn {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px;
+      height: 70px;
+      background: rgba(0,0,0,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .play-btn svg {
+      width: 36px;
+      height: 36px;
+      fill: var(--primary);
+    }
+    /* Features Section */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2vw;
+      justify-content: center;
+      background: #fff;
+      padding: 2rem 2vw 3rem 2vw;
+    }
+    .feature {
+      flex: 1 1 260px;
+      max-width: 340px;
+      background: #fafafa;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin: 1vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1rem 1rem 1rem;
+    }
+    .feature-img {
+      width: 100%;
+      height: 220px;
+      background: #ddd;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .feature-desc {
+      color: #444;
+      text-align: center;
+      font-size: 1rem;
+    }
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: #bbb;
+      padding: 2rem 2vw 1rem 2vw;
+      font-size: 0.95rem;
+    }
+    .footer-main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2vw;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .footer-col {
+      flex: 1 1 180px;
+      min-width: 160px;
+      margin-bottom: 1rem;
+    }
+    .footer-logo {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .newsletter {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .newsletter input[type="email"] {
+      padding: 0.4rem 0.7rem;
+      border: none;
+      border-radius: 3px;
+      font-size: 1rem;
+      width: 120px;
+    }
+    .newsletter button {
+      padding: 0.4rem 1rem;
+      background: var(--accent);
+      color: #222;
+      border: none;
+      border-radius: 3px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .newsletter button:hover {
+      background: #4fa32b;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    .footer-social {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .footer-social a {
+      color: #bbb;
+      font-size: 1.3rem;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    /* Responsive Styles */
+    @media (max-width: 900px) {
+      .hero, .intro, .features, .footer-main {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-img, .intro-img {
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      .features {
+        gap: 1rem;
+      }
+      .feature {
+        margin: 0.5rem 0;
+      }
+      .hero {
+        min-height: 340px;
+        padding-bottom: 3.5rem;
+      }
+      .hero-bottom-links {
+        font-size: 1rem;
+        flex-wrap: wrap;
+        padding: 0.7rem 2vw 0.7rem 2vw;
+      }
+      .intro {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 2vw;
+      }
+      .intro-img, .intro-text {
+        margin-left: 0;
+        max-width: 98vw;
+      }
+      .intro-img {
+        max-width: 98vw;
+      }
+      .intro-text {
+        align-items: center;
+        text-align: center;
+      }
+      .intro-text h2, .intro-text p {
+        align-self: center;
+      }
+      .hero-bottom-arrow {
+        display: none;
+      }
+    }
+    @media (max-width: 600px) {
+      .nav-bar, .service-nav, .intro, .video-section, .features, .footer-main {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 4vw;
+      }
+      .hero {
+        min-height: 220px;
+        padding-bottom: 4.5rem;
+      }
+      .intro {
+        padding: 1.2rem 4vw;
+      }
+      .testimonial {
+        font-size: 1rem;
+        padding: 1rem 4vw;
+      }
+      .video-section {
+        padding: 1rem 4vw;
+      }
+      .features {
+        padding: 1.2rem 4vw 2rem 4vw;
+      }
+      footer {
+        padding: 1.2rem 4vw 0.7rem 4vw;
+      }
+      .hero-bottom-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.98rem;
+      }
+    }
+    .has-mega-menu {
+      position: relative;
+    }
+    .mega-menu {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      background: #fff;
+      color: #222;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      border-radius: 0 0 12px 12px;
+      padding: 2rem 2.5rem;
+      min-width: 1024px;
+      z-index: 100;
+      gap: 3rem;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 1.05rem;
+    }
+    .mega-menu-col {
+      flex: 1 1 0;
+      min-width: 220px;
+      margin-right: 2rem;
+    }
+    .mega-title {
+      font-weight: bold;
+      margin: 1.2rem 0 0.5rem 0;
+      font-size: 1.08rem;
+      letter-spacing: 0.01em;
+    }
+    .mega-menu-col > div:not(.mega-title) {
+      margin-bottom: 0.4rem;
+    }
+    .has-mega-menu:hover .mega-menu,
+    .has-mega-menu:focus-within .mega-menu {
+      display: flex;
+    }
+    @media (max-width: 1100px) {
+      .mega-menu {
+        min-width: 90vw;
+        padding: 1.2rem 1vw;
+        gap: 1.5rem;
+        font-size: 0.98rem;
+      }
+      .mega-menu-col {
+        min-width: 150px;
+        margin-right: 1rem;
+      }
+    }
+    @media (max-width: 800px) {
+      .mega-menu {
+        flex-direction: column;
+        min-width: 0;
+        width: 95vw;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 1rem 2vw;
+      }
+      .mega-menu-col {
+        margin-right: 0;
+        margin-bottom: 1.2rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .mega-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0.5rem 0.5rem;
+        font-size: 0.97rem;
+      }
+      .mega-menu-col {
+        min-width: 0;
+      }
+    }
+    @media (max-width: 900px) {
+      .mega-menu {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <span>Contact Us</span>&nbsp;|&nbsp;<span>Pay Online</span>&nbsp;|&nbsp;<span><b>Place An Order</b></span>
+    </div>
+    <div class="nav-bar">
+      <div class="logo">Signature<br>Aspen Imaging</div>
+      <nav>
+        <ul>
+          <li class="has-mega-menu">
+            <a href="#" id="services-link">SERVICES & SOLUTIONS</a>
+            <div class="mega-menu" id="mega-menu">
+              <div class="mega-menu-col">
+                <div class="mega-title">PROMOTIONAL PRODUCTS</div>
+                <div>3D products</div>
+                <div>Apparel</div>
+                <div class="mega-title">BUSINESS PRINTING &<br>MARKETING MATERIALS</div>
+                <div>Business card, letterhead, and envelope sets</div>
+                <div>Posters, Flyers, Sell Sheets, and Handouts</div>
+                <div>Brochures, Booklets, Catalogs, Annual Reports</div>
+                <div>Calendars</div>
+                <div>Pocket Folders</div>
+              </div>
+              <div class="mega-menu-col">
+                <div class="mega-title">DIRECT MAIL</div>
+                <div>Postcards</div>
+                <div>Political Mailings</div>
+                <div>Labels</div>
+                <div>Converted Envelopes</div>
+                <div>Folded cards and invitations</div>
+                <div>Custom-Printed Boxes and inserts</div>
+                <div>Direct Mail Services</div>
+                <div class="mega-title">POP & DISPLAY</div>
+                <div>POP displays</div>
+                <div>Exhibit displays: Hop-Ups, Banner Stands, & Exhibit graphics</div>
+                <div>Rigid and Soft Signage (Banners and Panels)</div>
+              </div>
+              <div class="mega-menu-col">
+                <div class="mega-title">GRAND FORMAT & BRANDED ENVIRONMENTS</div>
+                <div>Installation Services</div>
+                <div>Custom-Cut Letters (cut vinyl graphics)</div>
+                <div>Corporate Décor</div>
+                <div>Window graphics & Privacy film</div>
+                <div>Vehicle graphics and wraps</div>
+                <div>Auto Magnets and Vehicle wraps</div>
+                <div>Wallcoverings and murals</div>
+                <div>3D Signage</div>
+                <div>Photographic and art reproduction to Canvas, acrylic or Dibond</div>
+                <div>Mesh wraps</div>
+              </div>
+            </div>
+          </li>
+          <li><a href="industry.html">INDUSTRIES SERVED</a></li>
+          <li><a href="#">RESOURCES</a></li>
+          <li><a href="#">WORK WITH US</a></li>
+        </ul>
+      </nav>
+      <span class="search">&#128269;</span>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Your image<br>communications<br>company</h1>
+    </div>
+    <div class="hero-img">
+      <img src="https://blog.printleaf.com/wp-content/uploads/2017/08/Dogtopia-Retail-Store-Graphics-Work-Hero-Slider-Carousel-9.jpg" alt="Hero Image">
+    </div>
+    <div class="hero-bottom-links">
+      <div class="hero-bottom-links-row" id="heroLinksRow">
+        <a href="#" class="hero-link">Promotional Products</a>
+        <a href="#" class="hero-link">Business & Marketing Materials</a>
+        <a href="#" class="hero-link">Direct Mail</a>
+        <a href="#" class="hero-link">POP & Display</a>
+        <a href="#" class="hero-link active">Grand Format & Branded Environments</a>
+        <div class="hero-bottom-arrow" id="heroArrow">
+          <svg viewBox="0 0 28 18"><polygon points="14,18 0,0 28,0" fill="#6cc24a"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="intro">
+    <div class="intro-img">
+      <img src="https://www.amalficoast-traveller.com/wp-content/uploads/2020/05/Large-Format-Printing-and-The-Materials-Used-for-It-amalficoast-traveller.png" alt="Intro Image">
+    </div>
+    <div class="intro-text">
+      <h2>We help you make your mark</h2>
+      <p>Minimus bonsuliae niusulto consunt erferist fic muntima, noritat iamidi plici conih.Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu lto dier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic muntima, noritat iamidi plici conih.Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu lto dier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic muntima, noritat iamidi plici conih.</p>
+      <a href="#">VIEW OUR SERVICES</a>
+    </div>
+  </section>
+  <div class="testimonial">
+    "Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu lto dier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic muntimamidi."
+    <span>– Customer Name</span>
+  </div>
+  <section class="video-section">
+    <div class="video-placeholder">
+      <div class="play-btn">
+        <svg viewBox="0 0 64 64"><polygon points="24,16 52,32 24,48"/></svg>
+      </div>
+    </div>
+  </section>
+  <section class="features">
+    <div class="feature">
+      <div class="feature-img"><img src="https://placehold.co/220x300" alt="Feature 1"></div>
+      <div class="feature-title">Lorem Ipsum Dolor Sit</div>
+      <div class="feature-desc">Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu lto dier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic</div>
+    </div>
+    <div class="feature">
+      <div class="feature-img"><img src="https://placehold.co/220x300" alt="Feature 2"></div>
+      <div class="feature-title">Amet Ocuro Consecuto</div>
+      <div class="feature-desc">Re rem facio, nos fachucia re in dea ocuro, Ti. Los huiursu lto dier issenictum tus? Pala nimus bonsuliae niusulto consunt erferist fic</div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-main">
+      <div class="footer-col">
+        <div class="footer-logo">Signature Aspen Imaging</div>
+        <div>1200 Kingswood Dr<br>Houston, TX 77094</div>
+        <div>713-555-0000<br>Fax: 281-257-9870<br>281-555-9796</div>
+      </div>
+      <div class="footer-col">
+        <div>Email: info@signatureaspen.com</div>
+        <div class="newsletter">
+          <input type="email" placeholder="Email Address">
+          <button>Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-col footer-links">
+        <div>Quick link</div>
+        <a href="#">Lorem dolor</a>
+        <a href="#">Contact us</a>
+        <a href="#">Epson sort net</a>
+      </div>
+      <div class="footer-col footer-links">
+        <div>Quick link</div>
+        <a href="#">Lorem dolor</a>
+        <a href="#">Cartas unum</a>
+        <a href="#">Epson sort net</a>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.844-1.563 3.042 0 3.604 2.003 3.604 4.605v5.591z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Copyright &copy; 2024 Signature Aspen Imaging, LLC. All rights reserved. | Sitemap | Privacy Policy | Term Condition
+    </div>
+  </footer>
+  <script>
+    // Move the arrow under the hovered or active link
+    document.addEventListener('DOMContentLoaded', function() {
+      const linksRow = document.getElementById('heroLinksRow');
+      const links = Array.from(linksRow.querySelectorAll('.hero-link'));
+      const arrow = document.getElementById('heroArrow');
+      function moveArrowTo(link) {
+        const rowRect = linksRow.getBoundingClientRect();
+        const linkRect = link.getBoundingClientRect();
+        const left = linkRect.left - rowRect.left + (linkRect.width - arrow.offsetWidth) / 2;
+        arrow.style.left = left + 'px';
+      }
+      // Set arrow under active link on load
+      const active = linksRow.querySelector('.active') || links[0];
+      moveArrowTo(active);
+      // Move arrow on hover
+      links.forEach(link => {
+        link.addEventListener('mouseenter', () => moveArrowTo(link));
+        link.addEventListener('focus', () => moveArrowTo(link));
+      });
+      // Return arrow to active on mouseleave
+      linksRow.addEventListener('mouseleave', () => moveArrowTo(active));
+      window.addEventListener('resize', () => moveArrowTo(active));
+    });
+  </script>
+</body>
+</html> 
