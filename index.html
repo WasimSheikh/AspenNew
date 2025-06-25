@@ -96,7 +96,10 @@
       margin-bottom: 3rem;
     }
     .hero-img img {
-      width: 90%;
+      width: 100%;
+      max-width: 700px;
+      height: 400px;
+      object-fit: cover;
       border-radius: 6px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     }
@@ -650,7 +653,7 @@
       <h1>Your image<br>communications<br>company</h1>
     </div>
     <div class="hero-img">
-      <img src="https://blog.printleaf.com/wp-content/uploads/2017/08/Dogtopia-Retail-Store-Graphics-Work-Hero-Slider-Carousel-9.jpg" alt="Hero Image">
+      <img id="heroBannerImg" src="https://placehold.co/700x400?text=Promotional+Products" alt="Hero Image">
     </div>
     <div class="hero-bottom-links">
       <div class="hero-bottom-links-row" id="heroLinksRow">
@@ -755,6 +758,37 @@
       // Return arrow to active on mouseleave
       linksRow.addEventListener('mouseleave', () => moveArrowTo(active));
       window.addEventListener('resize', () => moveArrowTo(active));
+    });
+    // Hero banner image rotation on link hover
+    document.addEventListener('DOMContentLoaded', function() {
+      const heroImg = document.getElementById('heroBannerImg');
+      const linksRow = document.getElementById('heroLinksRow');
+      const links = Array.from(linksRow.querySelectorAll('.hero-link'));
+      // Use real images, all sized to 700x400 for consistency
+      const images = [
+        'https://blog.printleaf.com/wp-content/uploads/2017/08/Dogtopia-Retail-Store-Graphics-Work-Hero-Slider-Carousel-9.jpg',
+        'https://www.alphagraphics.com/BlogMigrationImages/wp-content/uploads/sites/25/2017/05/LargeFormat_windowDecal.jpg',
+        'https://impactd.com/wp-content/uploads/2020/02/Geico-window-graphics.jpg',
+        'https://agidsm.com/wp-content/uploads/2019/09/IMG_7114.jpg',
+        'https://blog.printleaf.com/wp-content/uploads/2017/08/Dogtopia-Retail-Store-Graphics-Work-Hero-Slider-Carousel-9.jpg'
+      ];
+      // Find active link index
+      function getActiveIndex() {
+        return links.findIndex(link => link.classList.contains('active')) || 0;
+      }
+      // Set image by index
+      function setHeroImg(idx) {
+        heroImg.src = images[idx] || images[0];
+      }
+      // Set default image on load
+      setHeroImg(getActiveIndex());
+      // Hover events
+      links.forEach((link, idx) => {
+        link.addEventListener('mouseenter', () => setHeroImg(idx));
+        link.addEventListener('focus', () => setHeroImg(idx));
+      });
+      // On mouseleave, revert to active
+      linksRow.addEventListener('mouseleave', () => setHeroImg(getActiveIndex()));
     });
   </script>
 </body>
